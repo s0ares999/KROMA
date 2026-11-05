@@ -1,0 +1,109 @@
+[
+  {
+    "file": "logo-dark.svg",
+    "viewBox": "0 0 1600 500",
+    "bounds": [
+      140,
+      140,
+      1537,
+      366
+    ],
+    "visibleRatio": 6.18141592920354
+  },
+  {
+    "file": "logo-light.svg",
+    "viewBox": "0 0 1600 500",
+    "bounds": [
+      140,
+      140,
+      1537,
+      366
+    ],
+    "visibleRatio": 6.18141592920354
+  },
+  {
+    "file": "signature-horizontal.svg",
+    "viewBox": "0 0 1800 600",
+    "bounds": [
+      100,
+      220,
+      1322,
+      418
+    ],
+    "visibleRatio": 6.171717171717172
+  },
+  {
+    "file": "monogram.svg",
+    "viewBox": "0 0 800 800",
+    "bounds": [
+      96,
+      212,
+      704,
+      588
+    ],
+    "visibleRatio": 1.6170212765957446
+  },
+  {
+    "file": "monogram-black.svg",
+    "viewBox": "0 0 800 800",
+    "bounds": [
+      96,
+      212,
+      704,
+      588
+    ],
+    "visibleRatio": 1.6170212765957446
+  },
+  {
+    "file": "monogram-white.svg",
+    "viewBox": "0 0 800 800",
+    "bounds": [
+      96,
+      212,
+      704,
+      588
+    ],
+    "visibleRatio": 1.6170212765957446
+  },
+  {
+    "file": "grid-green.svg",
+    "viewBox": "0 0 800 800",
+    "bounds": [
+      100,
+      100,
+      700,
+      700
+    ],
+    "visibleRatio": 1
+  },
+  {
+    "file": "grid-black.svg",
+    "viewBox": "0 0 800 800",
+    "bounds": [
+      100,
+      100,
+      700,
+      700
+    ],
+    "visibleRatio": 1
+  },
+  {
+    "file": "grid-white.svg",
+    "viewBox": "0 0 800 800",
+    "bounds": [
+      100,
+      100,
+      700,
+      700
+    ],
+    "visibleRatio": 1
+  },
+  {
+    "file": "kroma-stationery.webp",
+    "size": 138518
+  },
+  {
+    "file": "kroma-signage.webp",
+    "size": 88624
+  }
+]
