@@ -36,6 +36,8 @@ O formulário não envia dados, confirma reservas nem simula disponibilidade. N�
 - `src/components/service-explorer.tsx`: cena interativa da abertura; visuais abstratos ilustram áreas de serviço, não trabalhos de clientes.
 - `src/components/booking-flow.tsx`: fluxo local do pedido.
 - `src/components/motion.tsx`: animações com limpeza de contexto, atualização por rota e movimento reduzido.
+- `src/components/immersive-scene.tsx` e `brand-world.tsx`: duas secções KROMA com cenário original em perspetiva, símbolo aprovado, texto animado e controlo para pausar o ambiente. O canvas limita a resolução e a frequência de desenho, e suspende a animação fora do ecrã ou com movimento reduzido.
+- `src/app/immersive.css`: composição, iluminação e adaptação móvel das cenas. A referência NK Studio orienta a escala tipográfica, as entradas por linhas e a profundidade; não são usados assets, textos ou código da referência.
 - `src/app/globals.css`: layout, tokens de marca, landing e componentes partilhados.
 - `src/app/secondary.css` e `booking-flow.css`: páginas secundárias e pedido.
 

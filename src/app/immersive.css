@@ -1,0 +1,26 @@
+.immersive-scene{position:relative;isolation:isolate;overflow:hidden;min-height:max(800px,100svh);display:grid;place-items:center;background:#020302;color:#fff;padding:130px var(--page-pad) 120px;perspective:1100px}
+.brand-world{position:absolute;inset:0;width:100%;height:100%;z-index:-3;pointer-events:none}
+.world-vignette{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(#000 0%,transparent 25%,transparent 64%,#000 100%),radial-gradient(ellipse at 50% 45%,transparent 15%,#0008 75%)}
+.world-emblem{position:absolute;z-index:-2;left:50%;top:9%;width:clamp(260px,36vw,550px);aspect-ratio:1;transform:translateX(-50%);pointer-events:none;transform-style:preserve-3d}
+.world-emblem-float{animation:world-float 7s ease-in-out infinite}
+.world-emblem img{width:100%;height:auto;filter:drop-shadow(2px 3px 0 #74942e) drop-shadow(3px 4px 0 #304214) drop-shadow(0 0 38px #c4f95538);opacity:.85}
+.immersive-content{width:100%;max-width:1150px;text-align:center;position:relative;margin-top:80px}
+.immersive-content>.eyebrow{color:var(--green);margin:0 auto 34px;font-size:10px;letter-spacing:.13em;width:fit-content;padding:8px 12px;background:#080c05c9;border:1px solid #c4f95520}
+.immersive-content h2{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:500;font-size:clamp(65px,9.6vw,154px);line-height:.98;letter-spacing:-.075em;text-shadow:0 3px 34px #0009}
+.world-title-window{display:block;overflow:hidden;padding-bottom:.13em;margin-bottom:-.13em}
+.world-title-window>[data-world-line]{display:block;transform-origin:left bottom}
+.world-period{color:var(--green)}
+.world-description{max-width:590px;margin:32px auto 26px;font-size:17px;line-height:1.65;letter-spacing:-.02em;color:#d9ddd3;text-wrap:pretty;text-shadow:0 2px 10px #000}
+.world-link{display:inline-flex;align-items:center;gap:18px;font-size:13px;font-weight:600;border-bottom:1px solid var(--green);padding:12px 0;text-transform:uppercase;letter-spacing:.025em;transition:color .2s}
+.world-link svg{width:18px;height:18px;transition:transform .25s}.world-link:hover{color:var(--green)}.world-link:hover svg{transform:translate(4px,-4px)}
+.world-caption{position:absolute;bottom:30px;left:var(--page-pad);right:var(--page-pad);display:flex;align-items:center;justify-content:space-between;gap:20px;color:#8e9683;font-size:8px;letter-spacing:.1em}
+.world-caption button{display:flex;align-items:center;gap:15px;padding:10px 0;background:transparent;border:0;color:#aeb5a6;font-size:10px;min-height:40px}.world-caption button:hover{color:var(--green)}
+.immersive-method .world-emblem{left:58%;top:13%;width:clamp(260px,32vw,470px)}
+.immersive-method{min-height:max(800px,105svh)}
+.immersive-method .world-vignette{background:linear-gradient(#000 0%,transparent 24%,transparent 65%,#000 100%),radial-gradient(ellipse at 50% 51%,#0005 0%,transparent 58%,#0008 100%)}
+.immersive-scene.is-paused .world-emblem-float{animation-play-state:paused}
+@keyframes world-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.play-actions button:not(.button-lime){background:transparent;color:#fff}
+@media(max-width:900px){.immersive-scene{min-height:90svh;padding-top:100px;padding-bottom:110px}.immersive-content{margin-top:80px}.immersive-content h2{font-size:clamp(55px,10.5vw,94px)}.world-description{max-width:520px;font-size:15px}.world-emblem{top:10%;width:330px}.immersive-method .world-emblem{left:54%;width:310px}.world-caption{font-size:7px}}
+@media(max-width:480px){.immersive-scene{min-height:780px;padding-top:105px;padding-bottom:115px}.immersive-content{margin-top:60px}.immersive-content h2{font-size:13vw}.immersive-content>.eyebrow{font-size:8px;letter-spacing:.07em}.world-description{font-size:14px;line-height:1.7;margin-top:28px}.world-link{font-size:10px;gap:12px}.world-emblem{top:11%;width:280px}.world-caption{align-items:start;gap:12px}.world-caption>span{max-width:150px;line-height:1.7}.world-caption button{padding-top:0;font-size:9px}}
+@media(prefers-reduced-motion:reduce){.world-emblem-float{animation:none}.world-caption button{display:none}.world-link svg{transition:none}}

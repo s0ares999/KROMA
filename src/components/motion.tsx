@@ -4,7 +4,6 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { createRibbonTrail } from "./ribbon-trails";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,38 +11,9 @@ export function Motion({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   useEffect(() => {
-    const sections = Array.from(root.current?.querySelectorAll<HTMLElement>("main > section, footer") ?? []);
-    const decorations = sections.map((section, index) => {
-      const svg = createRibbonTrail(index);
-      section.classList.add("has-scroll-trails");
-      section.prepend(svg);
-      return svg;
-    });
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
       const context = gsap.context(() => {
-        // The same phase runs through all sections, including their shared joins.
-        const travelled = [0, 0, 0];
-        decorations.forEach(svg => {
-          svg.querySelectorAll<SVGPathElement>(".ribbon-glint").forEach((path, i) => {
-            gsap.set(path, { strokeDashoffset: -travelled[i] });
-            gsap.to(path, { strokeDashoffset: -travelled[i] - 440, duration: 8, repeat: -1, ease: "none" });
-            travelled[i] += path.getTotalLength();
-          });
-        });
-        // A shared screen-space reveal keeps adjacent curves connected. Separate
-        // dash animations advance by path length, which varies with each bend.
-        const revealTrails = () => {
-          const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
-          const frontier = window.innerHeight * (atBottom ? 1 : .92);
-          decorations.forEach(svg => {
-            const bounds = svg.getBoundingClientRect();
-            const hidden = bounds.height ? Math.max(0, Math.min(100, (bounds.bottom - frontier) / bounds.height * 100)) : 100;
-            gsap.set(svg, { clipPath: `inset(0 0 ${hidden}% 0)` });
-          });
-        };
-        ScrollTrigger.create({ start: 0, end: "max", onUpdate: revealTrails, onRefresh: revealTrails });
-        revealTrails();
         if (root.current?.querySelector("[data-hero-line]")) {
           gsap.timeline({ defaults: { ease: "power3.out" } })
             .from("[data-hero-line]", { yPercent: 110, duration: 1, stagger: 0.12 })
@@ -54,18 +24,16 @@ export function Motion({ children }: { children: ReactNode }) {
         gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach(element => {
           gsap.from(element, { opacity: 0, y: 28, duration: .75, ease: "power2.out", scrollTrigger: { trigger: element, start: "top 96%", once: true } });
         });
-        const scene = root.current?.querySelector<HTMLElement>(".scroll-scene");
-        if (scene) {
-          const timeline = gsap.timeline({ scrollTrigger: {
-            trigger: scene, start: "top 65%", end: "bottom 85%", scrub: .7,
-          } });
-          timeline.from("[data-scene-word]", { yPercent: 65, opacity: .15, stagger: .18, duration: 1, ease: "power2.out" }, 0)
-            .fromTo(".motion-brand", { rotate: -65, scale: .55, yPercent: 20 }, { rotate: 0, scale: 1, yPercent: -12, duration: 2, ease: "none" }, 0);
-        }
-        // Keep the stronger parallax on spacious layouts, away from mobile controls.
-        if (window.matchMedia("(min-width: 901px)").matches && root.current?.querySelector(".hero-console")) {
-          gsap.to(".hero-console", { y: -45, rotate: 2, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: .8 } });
-        }
+        gsap.utils.toArray<HTMLElement>(".immersive-scene").forEach(scene => {
+          gsap.timeline({ scrollTrigger: { trigger: scene, start: "top 75%", once: true } })
+            .from(scene.querySelectorAll("[data-world-line]"), { yPercent: 110, rotate: 3, duration: 1.2, stagger: .16, ease: "power3.out" })
+            .from(scene.querySelectorAll("[data-world-reveal]"), { opacity: 0, y: 18, duration: .8, stagger: .1 }, .3);
+          gsap.fromTo(scene.querySelector(".world-emblem"), { rotateY: -28, rotateZ: -16, yPercent: 12 }, {
+            rotateY: 24, rotateZ: 10, yPercent: -12, ease: "none",
+            scrollTrigger: { trigger: scene, start: "top bottom", end: "bottom top", scrub: .8 },
+          });
+          gsap.fromTo(scene.querySelector(".brand-world"), { scale: 1.08 }, { scale: 1, ease: "none", scrollTrigger: { trigger: scene, start: "top bottom", end: "bottom top", scrub: .8 } });
+        });
       }, root);
       const refresh = () => ScrollTrigger.refresh();
       const details = root.current?.querySelectorAll("details") ?? [];
@@ -76,11 +44,7 @@ export function Motion({ children }: { children: ReactNode }) {
       if (root.current) observer.observe(root.current);
       return () => { active = false; observer.disconnect(); details.forEach(el => el.removeEventListener("toggle", refresh)); context.revert(); };
     });
-    return () => {
-      media.revert();
-      decorations.forEach(svg => svg.remove());
-      sections.forEach(section => section.classList.remove("has-scroll-trails"));
-    };
+    return () => media.revert();
   }, [pathname]);
   return <div ref={root}>{children}</div>;
 }

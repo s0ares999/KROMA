@@ -1,16 +1,3 @@
-.scroll-scene{position:relative;background:#080808;color:#fff;min-height:150svh}
-.scroll-scene-stage{min-height:90svh;position:sticky;top:90px;overflow:hidden;isolation:isolate;padding:8vw var(--page-pad);display:flex;align-items:center}
-.motion-scene-copy{position:relative;z-index:2;width:100%}
-.motion-scene-copy .eyebrow{color:var(--green);margin-bottom:35px}
-.motion-scene-copy h2{font-size:clamp(44px,8.7vw,150px);line-height:1.1;letter-spacing:-.065em}
-.motion-scene-copy h2 span{display:block;width:fit-content}
-.motion-scene-copy h2 span:last-child{color:var(--green)}
-.motion-scene-copy>p:last-child{color:#bdbdb3;margin-top:28px;font-size:16px}
-.motion-brand{position:absolute;width:clamp(260px,46vw,800px);right:-8vw;top:8%;z-index:-1;opacity:.22}
-.motion-brand img{display:block;width:100%;height:auto}
-.motion-scene-footer{position:absolute;bottom:30px;left:var(--page-pad);right:var(--page-pad);display:flex;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:.08em;color:#bdbdb3}
-@media(max-width:900px){.scroll-scene{min-height:120svh}.scroll-scene-stage{top:84px;min-height:75svh;padding-top:80px;padding-bottom:100px}.motion-brand{width:75vw;right:-24vw;top:15%}.motion-scene-copy h2{font-size:clamp(35px,10vw,85px)}.motion-scene-footer{font-size:7px}.motion-scene-copy>p:last-child{font-size:14px}}
-@media(prefers-reduced-motion:reduce){.scroll-scene{min-height:0}.scroll-scene-stage{position:relative;top:auto;min-height:70svh}.motion-scene-footer span:last-child{display:none}}
 /* Full-height sections retain natural overflow for smaller screens. */
 .hero,.intro-strip,.services,.process,.work-teaser,.conversion,.logo-playground{min-height:calc(100svh - 105px);padding-top:clamp(64px,8vh,130px);padding-bottom:clamp(64px,8vh,130px);align-content:center}
 .logo-playground{background:#111;color:#fff;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw}
@@ -25,17 +12,3 @@
 .play-piece:focus-visible{outline:3px solid white;outline-offset:5px;z-index:4}
 .play-board-label{position:absolute;bottom:10px;left:12px;font-size:8px;letter-spacing:.12em;pointer-events:none;color:#aaa}
 @media(max-width:900px){.hero,.intro-strip,.services,.process,.work-teaser,.conversion,.logo-playground{min-height:calc(100svh - 84px);padding-top:64px;padding-bottom:64px}.logo-playground{grid-template-columns:1fr;gap:35px}.play-board{max-width:520px}.play-copy h2{font-size:clamp(36px,8vw,64px)}}
-/* Rounded lime ribbons: shadow, dark rim, metal body and a travelling reflection. */
-.has-scroll-trails{position:relative;isolation:isolate}
-.section-trails{position:absolute;left:0;top:-1px;width:100%;height:calc(100% + 2px);z-index:-1;pointer-events:none;overflow:hidden;fill:none;opacity:.48;--ribbon-width:18px}
-.ribbon-1{opacity:.65;--ribbon-width:11px}.ribbon-2{opacity:.4;--ribbon-width:6px}
-.ribbon-shadow{stroke:#000;stroke-width:calc(var(--ribbon-width) + 10px);opacity:.12;transform:translate(9px,0)}
-.ribbon-rim{stroke:#233a0e;stroke-width:calc(var(--ribbon-width) + 2px)}
-.ribbon-body{stroke-width:var(--ribbon-width)}
-.ribbon-light{stroke:#c4f955;stroke-width:calc(var(--ribbon-width) * .5);opacity:.6;transform:translate(-2px,0)}
-.ribbon-edge{stroke:#f0ffd2;stroke-width:1.4px;opacity:.8;transform:translate(-4px,0)}
-.ribbon-glint{stroke:#fff;stroke-width:2px;stroke-dasharray:60 380;opacity:.6;transform:translate(-3px,0)}
-.hero>.section-trails,.scroll-scene>.section-trails,.logo-playground>.section-trails,.process>.section-trails,.footer>.section-trails{opacity:.65}
-.conversion>.section-trails{opacity:.45}
-@media(max-width:600px){.section-trails{--ribbon-width:11px;opacity:.35}.ribbon-1{--ribbon-width:7px}.ribbon-2{--ribbon-width:4px}.ribbon-edge{stroke-width:1px}}
-@media(prefers-reduced-motion:reduce){.ribbon-glint{display:none}}

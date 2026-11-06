@@ -4,6 +4,7 @@ import "./globals.css";
 import "./secondary.css";
 import "./booking-flow.css";
 import "./scroll-motion.css";
+import "./immersive.css";
 
 const archivo = localFont({
   src: "../fonts/ArchivoBlack-Regular.ttf",

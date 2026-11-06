@@ -3,7 +3,7 @@ import { Arrow } from "@/components/arrow";
 import { ServiceExplorer } from "@/components/service-explorer";
 import { ServiceList } from "@/components/service-list";
 import { SiteShell } from "@/components/site-shell";
-import { ScrollScene } from "@/components/scroll-scene";
+import { ImmersiveScene } from "@/components/immersive-scene";
 import { LogoPlayground } from "@/components/logo-playground";
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
       <div className="hero-bottom hero-meta"><span>UM ESTÚDIO. DIFERENTES FORMAS DE TE FAZER VER.</span><a href="#servicos" aria-label="Continuar para os serviços"><span>SCROLL PARA DESCOBRIR</span><Arrow direction="down" /></a></div>
     </section>
 
-    <ScrollScene />
+    <ImmersiveScene />
     <LogoPlayground />
 
     <section className="intro-strip section-pad" aria-labelledby="intro-title">
@@ -36,7 +36,9 @@ export default function Home() {
       <ServiceList />
     </section>
 
-    <section className="process section-pad" aria-labelledby="process-title">
+    <ImmersiveScene variant="method" />
+
+    <section id="processo" className="process section-pad" aria-labelledby="process-title">
       <div className="section-marker" data-reveal><span>02 / DO OLÁ À ENTREGA</span><span>UM PERCURSO CLARO.</span></div>
       <div className="section-heading" data-reveal><h2 id="process-title">Menos complicar.<br />Mais <span className="lime-underline">criar.</span></h2><p>Objetivo, âmbito e entregáveis alinhados.<br />Espaço para a tua ideia ganhar forma.</p></div>
       <div className="process-grid">{[
