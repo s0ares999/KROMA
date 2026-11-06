@@ -4,6 +4,7 @@ import { ServiceExplorer } from "@/components/service-explorer";
 import { ServiceList } from "@/components/service-list";
 import { SiteShell } from "@/components/site-shell";
 import { ScrollScene } from "@/components/scroll-scene";
+import { LogoPlayground } from "@/components/logo-playground";
 
 export default function Home() {
   return <SiteShell>
@@ -21,6 +22,7 @@ export default function Home() {
     </section>
 
     <ScrollScene />
+    <LogoPlayground />
 
     <section className="intro-strip section-pad" aria-labelledby="intro-title">
       <span className="eyebrow" data-reveal>BOAS IDEIAS PEDEM PRESENÇA.</span>

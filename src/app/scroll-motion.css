@@ -14,3 +14,17 @@
 .motion-scene-footer{position:absolute;bottom:30px;left:var(--page-pad);right:var(--page-pad);display:flex;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:.08em;color:#bdbdb3}
 @media(max-width:900px){.scroll-scene{min-height:120svh}.scroll-scene-stage{top:84px;min-height:75svh;padding-top:80px;padding-bottom:100px}.motion-brand{width:75vw;right:-24vw;top:15%}.motion-scene-copy h2{font-size:clamp(35px,10vw,85px)}.motion-scene-footer{font-size:7px}.motion-scene-copy>p:last-child{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.scroll-scene{min-height:0}.scroll-scene-stage{position:relative;top:auto;min-height:70svh}.motion-scene-footer span:last-child{display:none}}
+/* Full-height sections retain natural overflow for smaller screens. */
+.hero,.intro-strip,.services,.process,.work-teaser,.conversion,.logo-playground{min-height:calc(100svh - 105px);padding-top:clamp(64px,8vh,130px);padding-bottom:clamp(64px,8vh,130px);align-content:center}
+.logo-playground{background:#111;color:#fff;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw}
+.play-copy h2{font-size:clamp(38px,5vw,84px);line-height:1.08;letter-spacing:-.055em;margin:28px 0}
+.play-copy>p{max-width:450px;line-height:1.7;color:#bdbdb3}
+.play-actions{display:flex;flex-wrap:wrap;gap:16px;margin:30px 0}
+.play-actions button{cursor:pointer;border:1px solid #555}
+.play-help{font-size:12px}
+.play-board{width:100%;max-width:650px;aspect-ratio:1;position:relative;background:radial-gradient(#ffffff20 1px,transparent 1px) 0 0/24px 24px;border:1px solid #333;justify-self:center}
+.play-piece{position:absolute;width:16%;height:16%;border:0;background:var(--green);cursor:grab;touch-action:none;z-index:1;padding:0}
+.play-piece:active{cursor:grabbing;z-index:3;box-shadow:0 12px 35px #0008}
+.play-piece:focus-visible{outline:3px solid white;outline-offset:5px;z-index:4}
+.play-board-label{position:absolute;bottom:10px;left:12px;font-size:8px;letter-spacing:.12em;pointer-events:none;color:#aaa}
+@media(max-width:900px){.hero,.intro-strip,.services,.process,.work-teaser,.conversion,.logo-playground{min-height:calc(100svh - 84px);padding-top:64px;padding-bottom:64px}.logo-playground{grid-template-columns:1fr;gap:35px}.play-board{max-width:520px}.play-copy h2{font-size:clamp(36px,8vw,64px)}}
