@@ -15,12 +15,12 @@
 .world-link svg{width:18px;height:18px;transition:transform .25s}.world-link:hover{color:var(--green)}.world-link:hover svg{transform:translate(4px,-4px)}
 .world-caption{position:absolute;bottom:30px;left:var(--page-pad);right:var(--page-pad);display:flex;align-items:center;justify-content:space-between;gap:20px;color:#8e9683;font-size:8px;letter-spacing:.1em}
 .world-caption button{display:flex;align-items:center;gap:15px;padding:10px 0;background:transparent;border:0;color:#aeb5a6;font-size:10px;min-height:40px}.world-caption button:hover{color:var(--green)}
-.immersive-method .world-emblem{left:58%;top:13%;width:clamp(260px,32vw,470px)}
+.immersive-method .world-emblem{left:50%;top:13%;width:clamp(260px,32vw,470px)}
 .immersive-method{min-height:max(800px,105svh)}
 .immersive-method .world-vignette{background:linear-gradient(#000 0%,transparent 24%,transparent 65%,#000 100%),radial-gradient(ellipse at 50% 51%,#0005 0%,transparent 58%,#0008 100%)}
 .immersive-scene.is-paused .world-emblem-float{animation-play-state:paused}
 @keyframes world-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 .play-actions button:not(.button-lime){background:transparent;color:#fff}
-@media(max-width:900px){.immersive-scene{min-height:90svh;padding-top:100px;padding-bottom:110px}.immersive-content{margin-top:80px}.immersive-content h2{font-size:clamp(55px,10.5vw,94px)}.world-description{max-width:520px;font-size:15px}.world-emblem{top:10%;width:330px}.immersive-method .world-emblem{left:54%;width:310px}.world-caption{font-size:7px}}
+@media(max-width:900px){.immersive-scene{min-height:90svh;padding-top:100px;padding-bottom:110px}.immersive-content{margin-top:80px}.immersive-content h2{font-size:clamp(55px,10.5vw,94px)}.world-description{max-width:520px;font-size:15px}.world-emblem{top:10%;width:330px}.immersive-method .world-emblem{left:50%;width:310px}.world-caption{font-size:7px}}
 @media(max-width:480px){.immersive-scene{min-height:780px;padding-top:105px;padding-bottom:115px}.immersive-content{margin-top:60px}.immersive-content h2{font-size:13vw}.immersive-content>.eyebrow{font-size:8px;letter-spacing:.07em}.world-description{font-size:14px;line-height:1.7;margin-top:28px}.world-link{font-size:10px;gap:12px}.world-emblem{top:11%;width:280px}.world-caption{align-items:start;gap:12px}.world-caption>span{max-width:150px;line-height:1.7}.world-caption button{padding-top:0;font-size:9px}}
 @media(prefers-reduced-motion:reduce){.world-emblem-float{animation:none}.world-caption button{display:none}.world-link svg{transition:none}}
