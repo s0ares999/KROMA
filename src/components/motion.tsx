@@ -4,6 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { createRibbonTrail } from "./ribbon-trails";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,20 +14,7 @@ export function Motion({ children }: { children: ReactNode }) {
   useEffect(() => {
     const sections = Array.from(root.current?.querySelectorAll<HTMLElement>("main > section, footer") ?? []);
     const decorations = sections.map((section, index) => {
-      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("viewBox", "0 0 1200 1000");
-      svg.setAttribute("preserveAspectRatio", "none");
-      svg.setAttribute("aria-hidden", "true");
-      svg.setAttribute("focusable", "false");
-      svg.classList.add("section-trails");
-      for (let i = 0; i < 3; i++) {
-        const path = document.createElementNS(svg.namespaceURI, "path");
-        const x = 600 + i * 24;
-        const bend = index % 2 === 0 ? 1100 : 100;
-        path.setAttribute("d", `M${x} 0 C${x} 230 ${bend + i * 24} 180 ${bend + i * 24} 500 S${x} 770 ${x} 1000`);
-        path.setAttribute("vector-effect", "non-scaling-stroke");
-        svg.appendChild(path);
-      }
+      const svg = createRibbonTrail(index);
       section.classList.add("has-scroll-trails");
       section.prepend(svg);
       return svg;
@@ -34,6 +22,15 @@ export function Motion({ children }: { children: ReactNode }) {
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
       const context = gsap.context(() => {
+        // The same phase runs through all sections, including their shared joins.
+        const travelled = [0, 0, 0];
+        decorations.forEach(svg => {
+          svg.querySelectorAll<SVGPathElement>(".ribbon-glint").forEach((path, i) => {
+            gsap.set(path, { strokeDashoffset: -travelled[i] });
+            gsap.to(path, { strokeDashoffset: -travelled[i] - 440, duration: 8, repeat: -1, ease: "none" });
+            travelled[i] += path.getTotalLength();
+          });
+        });
         // A shared screen-space reveal keeps adjacent curves connected. Separate
         // dash animations advance by path length, which varies with each bend.
         const revealTrails = () => {
