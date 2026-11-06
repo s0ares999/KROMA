@@ -3,6 +3,7 @@ import { Arrow } from "@/components/arrow";
 import { ServiceExplorer } from "@/components/service-explorer";
 import { ServiceList } from "@/components/service-list";
 import { SiteShell } from "@/components/site-shell";
+import { ScrollScene } from "@/components/scroll-scene";
 
 export default function Home() {
   return <SiteShell>
@@ -18,6 +19,8 @@ export default function Home() {
       <ServiceExplorer />
       <div className="hero-bottom hero-meta"><span>UM ESTÚDIO. DIFERENTES FORMAS DE TE FAZER VER.</span><a href="#servicos" aria-label="Continuar para os serviços"><span>SCROLL PARA DESCOBRIR</span><Arrow direction="down" /></a></div>
     </section>
+
+    <ScrollScene />
 
     <section className="intro-strip section-pad" aria-labelledby="intro-title">
       <span className="eyebrow" data-reveal>BOAS IDEIAS PEDEM PRESENÇA.</span>

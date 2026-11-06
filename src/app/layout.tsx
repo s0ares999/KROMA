@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "./secondary.css";
 import "./booking-flow.css";
+import "./scroll-motion.css";
 
 const archivo = localFont({
   src: "../fonts/ArchivoBlack-Regular.ttf",
